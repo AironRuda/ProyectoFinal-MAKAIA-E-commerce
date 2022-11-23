@@ -100,7 +100,7 @@
           </button>
 
           <div class="dropdown">
-            <button class="btn dropbtn">
+            <button class="btn dropbtn" onclick="confirmCartView()">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -113,20 +113,10 @@
                   d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
                 />
               </svg>
+              <div id="cartIndex"></div>
             </button>
             <div class="dropdown-content"></div>
           </div>
-
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-container="body"
-            data-bs-toggle="popover"
-            data-bs-placement="left"
-            data-bs-content="Left popover"
-          >
-            Popover on left
-          </button>
 
           <button class="btn">
             <svg
@@ -145,13 +135,7 @@
         </div>
       </div>
     </nav>
-    <!--  -->
-
-    <!--  -->
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div id="cardField"></div>
-    </div>
-    <div id="favsField"></div>
+    <div id="cardField" class="center"></div>
   </body>
 </html>
 

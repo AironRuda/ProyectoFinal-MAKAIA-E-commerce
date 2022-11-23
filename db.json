@@ -6,147 +6,147 @@
             "name":"televisor",
             "img": "./images/televisor.jpg",
             "price":1800000,
-            "amount": 0
+            "quantity": 0
         },{
             "id":1,
             "type":"tecnologia",
             "name":"computador",
             "img": "./images/computador.jpg",
             "price":3200000,
-            "amount": 0
+            "quantity": 0
         },{
             "id":2,
             "type":"tecnologia",
             "name":"celular",
             "img": "./images/celular.jpg",
             "price":740000,
-            "amount": 0
+            "quantity": 0
         },{
             "id":3,
             "type":"tecnologia",
             "name":"mouse",
             "img": "./images/mouse.jpg",
             "price":30000,
-            "amount": 0
+            "quantity": 0
         },{
             "id":4,
             "type":"alimentos",
             "name":"parmesano",
             "img": "./images/parmesano.jpg",
             "price":10000,
-            "amount": 0
+            "quantity": 0
         },{
             "id":5,
             "type":"alimentos",
             "name":"huevos",
             "img": "./images/huevos.jpg",
             "price":15000,
-            "amount": 0
+            "quantity": 0
         },{
             "id":6,
             "type":"alimentos",
             "name":"leche",
             "img": "./images/leche.jpg",
             "price":3000,
-            "amount": 0
+            "quantity": 0
         },{
             "id":7,
             "type":"alimentos",
             "name":"banano",
             "img": "./images/banano.jpg",
             "price":300,
-            "amount": 0
+            "quantity": 0
         },{
             "id":8,
             "type":"alimentos",
             "name":"agua",
             "img": "./images/agua.jpg",
             "price":2000,
-            "amount": 0
+            "quantity": 0
         },{
             "id":9,
             "type":"licores",
             "name":"guaro",
             "img": "./images/guaro.jpg",
             "price":38000,
-            "amount": 0
+            "quantity": 0
         },{
             "id":10,
             "type":"licores",
             "name":"cerveza",
             "img": "./images/cerveza.jpg",
             "price":3000,
-            "amount": 0
+            "quantity": 0
         },{
             "id":11,
             "type":"licores",
             "name":"vino",
             "img": "./images/vino.jpg",
             "price":50000,
-            "amount": 0
+            "quantity": 0
         },{
             "id":12,
             "type":"licores",
             "name":"vodka",
             "img": "./images/vodka.jpg",
             "price":45000,
-            "amount": 0
+            "quantity": 0
         },{
             "id":13,
             "type":"electrodomestico",
             "name":"nevera",
             "img": "./images/nevera.jpg",
             "price":3000000,
-            "amount": 0
+            "quantity": 0
         },{
             "id":14,
             "type":"electrodomestico",
             "name":"lavadora",
             "img": "./images/lavadora.jpg",
             "price":2000000,
-            "amount": 0
+            "quantity": 0
         },{
             "id":15,
             "type":"electrodomestico",
             "name":"microondas",
             "img": "./images/microondas.jpg",
             "price":500000,
-            "amount": 0
+            "quantity": 0
         },{
             "id":16,
             "type":"electrodomestico",
             "name":"licuadora",
             "img": "./images/licuadora.jpg",
             "price":300000,
-            "amount": 0
+            "quantity": 0
         },{
             "id":17,
             "type":"vestuario",
             "name":"vestido",
             "img": "./images/vestido.jpg",
             "price":150000,
-            "amount": 0
+            "quantity": 0
         },{
             "id":18,
             "type":"vestuario",
             "name":"zapatos",
             "img": "./images/zapatos.jpg",
             "price":90000,
-            "amount": 0
+            "quantity": 0
         },{
             "id":19,
             "type":"vestuario",
             "name":"camisa",
             "img": "./images/camisa.jpg",
             "price":60000,
-            "amount": 0
+            "quantity": 0
         },{
             "id":20,
             "type":"vestuario",
             "name":"gorra",
             "img": "./images/gorra.jpg",
             "price":50000,
-            "amount": 0
+            "quantity": 0
         }
     ],
     "purchase":[]
