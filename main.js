@@ -1,6 +1,11 @@
-const API_URL = "http://localhost:3000/products"; //url de productos
+const API_URL = "http://localhost:3000"; //url de productos
 const cardField = document.querySelector("#cardField"); // instanciar el lugar donde iran las cartas
 const dropdownContent = document.querySelector(".dropdown-content");
+
+const API_PATHS = {
+  products: "/products",
+  purchaseOrders: "/purchaseOrders",
+};
 
 const handleError = (error) => {
   console.log(error);
@@ -13,10 +18,10 @@ const handleError = (error) => {
  * @param {*str} browser
  * @returns retorna una lista con objetos
  */
-const getInfo = async (browser) => {
+const infoGET = async (path, browser) => {
   browser
-    ? (response = await fetch(API_URL + `?q=${browser}`))
-    : (response = await fetch(API_URL));
+    ? (response = await fetch(API_URL + path + `?q=${browser}`))
+    : (response = await fetch(API_URL + path));
   try {
     let data = await response.json();
     data = data.sort(() => {
@@ -80,7 +85,7 @@ const createBasicCard = (data) => {
  */
 const showProducts = async (products) => {
   cardField.innerHTML = "";
-  const data = await getInfo(products);
+  const data = await infoGET(API_PATHS.products, products);
   data.forEach((element) => {
     createBasicCard(element);
   });
@@ -116,7 +121,7 @@ const extractInfoFromLocalStorage = (favOrCart) => {
  * @param {*str} favOrCart "fav" or "cart"
  */
 const itemSelected = async (idSelected, favOrCart) => {
-  const data = await getInfo();
+  const data = await infoGET(API_PATHS.products);
   const product = data.find((item) => item.id == idSelected); // extrae el producto con el id
   let infoStorage = extractInfoFromLocalStorage(favOrCart);
   let bandFinded = infoStorage.some((item) => item.id == idSelected);
@@ -294,6 +299,9 @@ const modifyQuantityProduct = (idToModiifyQuantity, plusOrMinus) => {
   localStorage.setItem("cart", answerJSON);
   confirmCartView();
 };
+/**
+ * Muestra formulario para completar orden de compra y con el boton se extraen la info del contacto
+ */
 const showFormCompleteOrderCart = () => {
   cardField.innerHTML += `
   <form class="form-group">
@@ -304,27 +312,138 @@ const showFormCompleteOrderCart = () => {
   <button class="btn btn-success" onClick="getInfoToConfirm()">Completar compra</button> 
   `;
 };
-
+/**
+ * Comprueba que las cantidades sean mayores que cero
+ */
 const confirmCartOrder = () => {
-  cardField.innerHTML = `<h1 class="section-title">Confirmar orden de compra</h1><br>`;
-  showFormCompleteOrderCart();
+  const infoStorage = extractInfoFromLocalStorage("cart");
+  const someQuantityInvalid = infoStorage.some((item) => item.quantity == 0);
+  if (infoStorage.length == 0) {
+    alert("carrito vacio");
+  } else {
+    if (someQuantityInvalid == true) {
+      alert("algun producto tiene cantidad de 0");
+    } else {
+      cardField.innerHTML = `<h1 class="section-title">Confirmar orden de compra</h1><br>`;
+      showFormCompleteOrderCart();
+    }
+  }
 };
+/**
+ * crea un objeto con la informacion del contacto y con la compra realizada
+ */
 const getInfoToConfirm = () => {
   const username = document.getElementById("username");
   const addres = document.getElementById("addres");
   const email = document.getElementById("email");
   const infoStorage = extractInfoFromLocalStorage("cart");
-
-  let object = {
+  let orderComplete = {
     username: username.value,
     addres: addres.value,
     email: email.value,
     purchase: infoStorage,
   };
-  // let answerJSON = JSON.stringify([]);
-  // localStorage.setItem(favOrCart, answerJSON);
-  console.log(object);
+  let answerJSON = JSON.stringify([]);
+  localStorage.setItem("cart", answerJSON);
+  httpPOST(API_PATHS.purchaseOrders, orderComplete);
   showProducts();
+};
+
+const httpPOST = async (path, newData) => {
+  try {
+    let response = await fetch(API_URL + path, {
+      body: JSON.stringify(newData),
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    let data = await response.json();
+    return data;
+  } catch (error) {
+    handleError;
+  }
+};
+
+const showToAddProducts = () => {
+  cardField.innerHTML += `
+  <form class="form-group">
+    <input type="text" id="productName" class="form-control mt-2" placeholder="Nombre del producto" required>
+    <input type="text" id="productType" class="form-control mt-2" placeholder="Tipo del producto" required>
+    <input type="url" id="productImg" class="form-control mt-2" placeholder="Imagen del producto" required>
+    <input type="number" id="productPrice" class="form-control mt-2" placeholder="Precio del producto" required>
+  </form>
+  <button class="btn btn-success" onClick="addProduct()">Completar compra</button> 
+  `;
+};
+
+const addProduct = () => {
+  const productName = document.getElementById("productName");
+  const productType = document.getElementById("productType");
+  const productImg = document.getElementById("productImg");
+  const productPrice = document.getElementById("productPrice");
+  let newProduct = {
+    type: productType.value,
+    name: productName.value,
+    img: productImg.value,
+    price: productPrice.value,
+    quantity: 0,
+  };
+  httpPOST(API_PATHS.products, newProduct);
+};
+
+const showPurchase = (data) => {
+  cardField.innerHTML += `
+  <div class="purchaseCard">
+    <h2>Orden de compra: ${data.id}</h2>
+    <div class="cardCartConfirm">
+      <p>Usuario: ${data.username}</p>
+      <p>Direccion: ${data.addres}</p>
+      <p>Correo: ${data.email}</p>
+    </div>
+  `;
+  const items = data.purchase;
+  let total = 0;
+  items.forEach((product) => {
+    total += product.price * product.quantity;
+    cardField.innerHTML += `
+      <div class="cardCartConfirm">
+        <img src="${product.img}" class="card-img-confirm" alt="${
+      product.name
+    }" />
+        <div>
+          <p class="productType">${product.type}</p>
+          <p class="productName"><strong>${product.name}</strong></p>
+        </div>
+        <h3 class="productPrice">$ ${product.price}</h3>
+        <P>${product.quantity}</P>
+
+        <div>
+          <p>
+          total
+          ${product.quantity * product.price}
+          </p>
+        </div>
+      </div>
+    `;
+  });
+  cardField.innerHTML += `
+  <div class="total-cart text-uppercase">
+    <p>
+    <strong>total de compra: $ ${total}</strong>
+    </p>
+  </div>
+  `;
+};
+
+const adminView = async () => {
+  cardField.innerHTML = `<h1 class="section-title">Agregar un nuevo producto</h1><br>`;
+  showToAddProducts();
+  cardField.innerHTML += `<h1 class="section-title">Ordenes de compra</h1><br>`;
+  const purchaseStored = await infoGET(API_PATHS.purchaseOrders);
+  purchaseStored.forEach((element) => {
+    showPurchase(element);
+  });
 };
 
 /*

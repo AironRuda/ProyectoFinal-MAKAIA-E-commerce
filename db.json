@@ -1,153 +1,230 @@
 {
-    "products":[
+  "products": [
+    {
+      "id": 0,
+      "type": "tecnologia",
+      "name": "televisor",
+      "img": "./images/televisor.jpg",
+      "price": 1800000,
+      "quantity": 0
+    },
+    {
+      "id": 1,
+      "type": "tecnologia",
+      "name": "computador",
+      "img": "./images/computador.jpg",
+      "price": 3200000,
+      "quantity": 0
+    },
+    {
+      "id": 2,
+      "type": "tecnologia",
+      "name": "celular",
+      "img": "./images/celular.jpg",
+      "price": 740000,
+      "quantity": 0
+    },
+    {
+      "id": 3,
+      "type": "tecnologia",
+      "name": "mouse",
+      "img": "./images/mouse.jpg",
+      "price": 30000,
+      "quantity": 0
+    },
+    {
+      "id": 4,
+      "type": "alimentos",
+      "name": "parmesano",
+      "img": "./images/parmesano.jpg",
+      "price": 10000,
+      "quantity": 0
+    },
+    {
+      "id": 5,
+      "type": "alimentos",
+      "name": "huevos",
+      "img": "./images/huevos.jpg",
+      "price": 15000,
+      "quantity": 0
+    },
+    {
+      "id": 6,
+      "type": "alimentos",
+      "name": "leche",
+      "img": "./images/leche.jpg",
+      "price": 3000,
+      "quantity": 0
+    },
+    {
+      "id": 7,
+      "type": "alimentos",
+      "name": "banano",
+      "img": "./images/banano.jpg",
+      "price": 300,
+      "quantity": 0
+    },
+    {
+      "id": 8,
+      "type": "alimentos",
+      "name": "agua",
+      "img": "./images/agua.jpg",
+      "price": 2000,
+      "quantity": 0
+    },
+    {
+      "id": 9,
+      "type": "licores",
+      "name": "guaro",
+      "img": "./images/guaro.jpg",
+      "price": 38000,
+      "quantity": 0
+    },
+    {
+      "id": 10,
+      "type": "licores",
+      "name": "cerveza",
+      "img": "./images/cerveza.jpg",
+      "price": 3000,
+      "quantity": 0
+    },
+    {
+      "id": 11,
+      "type": "licores",
+      "name": "vino",
+      "img": "./images/vino.jpg",
+      "price": 50000,
+      "quantity": 0
+    },
+    {
+      "id": 12,
+      "type": "licores",
+      "name": "vodka",
+      "img": "./images/vodka.jpg",
+      "price": 45000,
+      "quantity": 0
+    },
+    {
+      "id": 13,
+      "type": "electrodomestico",
+      "name": "nevera",
+      "img": "./images/nevera.jpg",
+      "price": 3000000,
+      "quantity": 0
+    },
+    {
+      "id": 14,
+      "type": "electrodomestico",
+      "name": "lavadora",
+      "img": "./images/lavadora.jpg",
+      "price": 2000000,
+      "quantity": 0
+    },
+    {
+      "id": 15,
+      "type": "electrodomestico",
+      "name": "microondas",
+      "img": "./images/microondas.jpg",
+      "price": 500000,
+      "quantity": 0
+    },
+    {
+      "id": 16,
+      "type": "electrodomestico",
+      "name": "licuadora",
+      "img": "./images/licuadora.jpg",
+      "price": 300000,
+      "quantity": 0
+    },
+    {
+      "id": 17,
+      "type": "vestuario",
+      "name": "vestido",
+      "img": "./images/vestido.jpg",
+      "price": 150000,
+      "quantity": 0
+    },
+    {
+      "id": 18,
+      "type": "vestuario",
+      "name": "zapatos",
+      "img": "./images/zapatos.jpg",
+      "price": 90000,
+      "quantity": 0
+    },
+    {
+      "id": 19,
+      "type": "vestuario",
+      "name": "camisa",
+      "img": "./images/camisa.jpg",
+      "price": 60000,
+      "quantity": 0
+    },
+    {
+      "id": 20,
+      "type": "vestuario",
+      "name": "gorra",
+      "img": "./images/gorra.jpg",
+      "price": 50000,
+      "quantity": 0
+    },
+    {
+      "type": "tecnologia",
+      "name": "camara",
+      "img": "data:image/jpeg;base64,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",
+      "price": "500000",
+      "quantity": 0,
+      "id": 21
+    }
+  ],
+  "purchaseOrders": [
+    {
+      "username": "airon.ruda",
+      "addres": "Aqui",
+      "email": "aironruda_02@hotmail.com",
+      "purchase": [
         {
-            "id":0,
-            "type":"tecnologia",
-            "name":"televisor",
-            "img": "./images/televisor.jpg",
-            "price":1800000,
-            "quantity": 0
-        },{
-            "id":1,
-            "type":"tecnologia",
-            "name":"computador",
-            "img": "./images/computador.jpg",
-            "price":3200000,
-            "quantity": 0
-        },{
-            "id":2,
-            "type":"tecnologia",
-            "name":"celular",
-            "img": "./images/celular.jpg",
-            "price":740000,
-            "quantity": 0
-        },{
-            "id":3,
-            "type":"tecnologia",
-            "name":"mouse",
-            "img": "./images/mouse.jpg",
-            "price":30000,
-            "quantity": 0
-        },{
-            "id":4,
-            "type":"alimentos",
-            "name":"parmesano",
-            "img": "./images/parmesano.jpg",
-            "price":10000,
-            "quantity": 0
-        },{
-            "id":5,
-            "type":"alimentos",
-            "name":"huevos",
-            "img": "./images/huevos.jpg",
-            "price":15000,
-            "quantity": 0
-        },{
-            "id":6,
-            "type":"alimentos",
-            "name":"leche",
-            "img": "./images/leche.jpg",
-            "price":3000,
-            "quantity": 0
-        },{
-            "id":7,
-            "type":"alimentos",
-            "name":"banano",
-            "img": "./images/banano.jpg",
-            "price":300,
-            "quantity": 0
-        },{
-            "id":8,
-            "type":"alimentos",
-            "name":"agua",
-            "img": "./images/agua.jpg",
-            "price":2000,
-            "quantity": 0
-        },{
-            "id":9,
-            "type":"licores",
-            "name":"guaro",
-            "img": "./images/guaro.jpg",
-            "price":38000,
-            "quantity": 0
-        },{
-            "id":10,
-            "type":"licores",
-            "name":"cerveza",
-            "img": "./images/cerveza.jpg",
-            "price":3000,
-            "quantity": 0
-        },{
-            "id":11,
-            "type":"licores",
-            "name":"vino",
-            "img": "./images/vino.jpg",
-            "price":50000,
-            "quantity": 0
-        },{
-            "id":12,
-            "type":"licores",
-            "name":"vodka",
-            "img": "./images/vodka.jpg",
-            "price":45000,
-            "quantity": 0
-        },{
-            "id":13,
-            "type":"electrodomestico",
-            "name":"nevera",
-            "img": "./images/nevera.jpg",
-            "price":3000000,
-            "quantity": 0
-        },{
-            "id":14,
-            "type":"electrodomestico",
-            "name":"lavadora",
-            "img": "./images/lavadora.jpg",
-            "price":2000000,
-            "quantity": 0
-        },{
-            "id":15,
-            "type":"electrodomestico",
-            "name":"microondas",
-            "img": "./images/microondas.jpg",
-            "price":500000,
-            "quantity": 0
-        },{
-            "id":16,
-            "type":"electrodomestico",
-            "name":"licuadora",
-            "img": "./images/licuadora.jpg",
-            "price":300000,
-            "quantity": 0
-        },{
-            "id":17,
-            "type":"vestuario",
-            "name":"vestido",
-            "img": "./images/vestido.jpg",
-            "price":150000,
-            "quantity": 0
-        },{
-            "id":18,
-            "type":"vestuario",
-            "name":"zapatos",
-            "img": "./images/zapatos.jpg",
-            "price":90000,
-            "quantity": 0
-        },{
-            "id":19,
-            "type":"vestuario",
-            "name":"camisa",
-            "img": "./images/camisa.jpg",
-            "price":60000,
-            "quantity": 0
-        },{
-            "id":20,
-            "type":"vestuario",
-            "name":"gorra",
-            "img": "./images/gorra.jpg",
-            "price":50000,
-            "quantity": 0
+          "id": 8,
+          "type": "alimentos",
+          "name": "agua",
+          "img": "./images/agua.jpg",
+          "price": 2000,
+          "quantity": 1
+        },
+        {
+          "id": 15,
+          "type": "electrodomestico",
+          "name": "microondas",
+          "img": "./images/microondas.jpg",
+          "price": 500000,
+          "quantity": 1
+        },
+        {
+          "id": 6,
+          "type": "alimentos",
+          "name": "leche",
+          "img": "./images/leche.jpg",
+          "price": 3000,
+          "quantity": 1
         }
-    ],
-    "purchase":[]
+      ],
+      "id": 1
+    },
+    {
+      "username": "Airon Ruda Alfonso",
+      "addres": "allá",
+      "email": "airon.rudaa@gmail.com",
+      "purchase": [
+        {
+          "id": 4,
+          "type": "alimentos",
+          "name": "parmesano",
+          "img": "./images/parmesano.jpg",
+          "price": 10000,
+          "quantity": 1
+        }
+      ],
+      "id": 2
+    }
+  ]
 }
